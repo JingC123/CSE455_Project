@@ -1,6 +1,6 @@
 ## Bird Classfication
 ### Problem description
-
+  <div align=center><img width="650" src="/CSE455_Project/bird.jpg"/></div>
 We were doing image recognition of vehicles and using the data from Kaggle and Cifar. This recognition includes convolutional neural networks in pytorch. However, once the professor announced the bird classification challenge, we understood that we can use the same skill for classifying different types of birds. We can use a neural network to train the bird dataset with up to 38562 images in it and see how accurate our model is. In addition to our accuracy, we also can compete with others training accuracy in Kaggle. This can help us to think about how to improve our model, including changing the number of epochs or the size of learning rate.  
 
 ### Related work
