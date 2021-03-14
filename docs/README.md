@@ -45,7 +45,7 @@ Resnet50 pretrained model with total 35 epochs.
 2. The next 10 epochs, we set the lr=0.001.
 3. In the final 5 epochs, we set the decay = 0.005.
 Therefore, we got the final result. The final losses = 0.11 and the training accuracy = 0.98.
-  <div align=center><img width="650" src="/CSE455_Project/docs/imgs/kaggle.png"/></div>
+  <div align=center><img width="650" src="./imgs/kaggle.png"/></div>
 In the end, the score we got is 0.7275. That's a sad story, we are 7th in the competition :(
 
 
