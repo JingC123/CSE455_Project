@@ -2,7 +2,7 @@
   <div align=center><img width="650" src="/CSE455_Project/bird.jpg"/></div>
 ### Problem description
 We were doing image recognition of vehicles and using the data from Kaggle and Cifar. This recognition includes convolutional neural networks in pytorch. However, once the professor announced the bird classification challenge, we understood that we can use the same skill for classifying different types of birds. We can use a neural network to train the bird dataset with up to 38562 images in it and see how accurate our model is. In addition to our accuracy, we also can compete with others training accuracy in Kaggle. This can help us to think about how to improve our model, including changing the number of epochs or the size of learning rate.  
-[Github website](https://github.com/JingC123/CSE455_Project)
+Here is the link of our Github Repo: [Github website](https://github.com/JingC123/CSE455_Project)
 
 ### Related work
 
@@ -24,11 +24,11 @@ We use the pretrained Resnet50 net as our model. In the first 10 epochs, the per
 But unfortunately, when we trained the model to 20 epochs, we encountered a very serious overfitting problem. The training accuracy we got is 0.98, but the testing accuracy we got is only 0.72. And when we kept training this model, the situation was not going well -the testing accuracy almost did not increase at all.
 
 We have adopted the following methods to solve this problem.
--***Add decay***-:
+-Add decay-
 As we know, we can add decay to prevent overfitting. The default decay is 0.0005. We set the decay to 0.005. But the improvement effect is minimal. The testing accuracy rose from 0.72 to 0.73.
--***Add dropout layer***-:
+-Add dropout layer-
 We try to add a dropout layer after the convolutional layer to prevent overfitting.
--***Use another pretrianed net***-:
+-Use another pretrianed net-
 We try to use another pretrained net - Resnet152.
 
 
