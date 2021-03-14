@@ -8,11 +8,10 @@ We were doing image recognition of vehicles and using the data from Kaggle and C
 ### Related work
 
 **ResNet**: PyTorch's ResNet model was used to be our pretrained model. Resnet models were proposed in “Deep Residual Learning for Image Recognition”. There are several versions of resnet models which contain different layers respectively. In the kaggle competition, “resnet18”(vision:v0.6.0) which contains 18 layers, was used as an example of the pretrained model. Detailed model architectures and accuracy can be found online. We tested different versions of resnet pretrained model to get the best accuracy result for the competition problem. 
-  <div align=center><img width="650" src="/Age-Conversion/imgs/gan.png"/></div>
 
 **Dataset**: We are using the kaggle bird identification dataset provided by the instructor
 There are 555 different images categories (birds) given by integers [0-554].
- [Birds](https://www.kaggle.com/c/birds21wi)
+[Birds](https://www.kaggle.com/c/birds21wi)
 ### Methodology
 
 **Platform and tool**:
