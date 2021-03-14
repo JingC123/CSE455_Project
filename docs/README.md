@@ -31,7 +31,7 @@ But unfortunately, when we trained the model to 20 epochs, we encountered a very
 We have adopted the following methods to solve this problem.
 * #### Add decay
 As we know, we can add decay to prevent overfitting. The default decay is 0.0005. We set the decay to 0.005. But the improvement effect is minimal. The testing accuracy rose from 0.72 to 0.73.
-* #### dropout layer
+* #### Add dropout layer
 We try to add a dropout layer after the convolutional layer to prevent overfitting. But it doesn’t work, even letting the losses decrease slowly. So we decide to delete the dropout layer.
 * #### Use another pretrianed net
 We try to use another pretrained net, for example, Resnet152. But the Resnet152 doesn’t work well. We guess that because Resnet152 is more complex and deeper, so it is more easily overfitted.
@@ -44,6 +44,7 @@ Resnet50 pretrained model with total 35 epochs.
 1. In the first 20 epochs, we set the lr = 0.01 and decay =0.0005. And we got the losses = 0.436, training accuracy = 0.875.
 2. The next 10 epochs, we set the lr=0.001.
 3. In the final 5 epochs, we set the decay = 0.005.
+  <div align=center><img width="650" src="./imgs/losses.png"/></div>
 Therefore, we got the final result. The final losses = 0.11 and the training accuracy = 0.98.
   <div align=center><img width="650" src="./imgs/kaggle.png"/></div>
 In the end, the score we got is 0.7275. That's a sad story, we are 7th in the competition :(
