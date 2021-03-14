@@ -23,11 +23,11 @@ We use the pretrained Resnet50 net as our model. In the first 10 epochs, the per
 But unfortunately, when we trained the model to 20 epochs, we encountered a very serious overfitting problem. The training accuracy we got is 0.98, but the testing accuracy we got is only 0.72. And when we kept training this model, the situation was not going well -the testing accuracy almost did not increase at all.
 
 We have adopted the following methods to solve this problem.
-***Add decay***:
+-***Add decay***-:
 As we know, we can add decay to prevent overfitting. The default decay is 0.0005. We set the decay to 0.005. But the improvement effect is minimal. The testing accuracy rose from 0.72 to 0.73.
-***Add dropout layer***:
+-***Add dropout layer***-:
 We try to add a dropout layer after the convolutional layer to prevent overfitting.
-***Use another pretrianed net***:
+-***Use another pretrianed net***-:
 We try to use another pretrained net - Resnet152.
 
 
