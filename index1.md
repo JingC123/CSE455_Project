@@ -3,15 +3,9 @@
 <video src="demo.mov" width="320" height="200" controls preload></video>
 ### Problem description
 
-We were doing image recognition of vehicles and using the data from Kaggle and Cifar. This recognition includes convolutional neural networks in pytorch. However, once the professor announced the bird classification challenge, we understood that we can use the same skill for classifying different types of birds. We can use a neural network to train the bird dataset with up to 38562 images in it and see how accurate our model is. In addition to our accuracy, we also can compete with others training accuracy in Kaggle. This can help us to think about how to improve our model, including changing the number of epochs or the size of learning rate.       
-
-### Problem statement
-
-In this project, we try to simulate the function of one fashionable app: FaceApp, people put their original selfie and change their age to predict their previous or future apparence. GANs were mostly implemented to achieve this purpose in the past, and can only speculate in one direction, from young to old or from old to young, so we use the GAN-based architecture: CycleGAN to realize the function that can predict in two directions, from young to old and old to young.
+We were doing image recognition of vehicles and using the data from Kaggle and Cifar. This recognition includes convolutional neural networks in pytorch. However, once the professor announced the bird classification challenge, we understood that we can use the same skill for classifying different types of birds. We can use a neural network to train the bird dataset with up to 38562 images in it and see how accurate our model is. In addition to our accuracy, we also can compete with others training accuracy in Kaggle. This can help us to think about how to improve our model, including changing the number of epochs or the size of learning rate.  
 
 ### Related work
-
-**Cycle-Consistent Adversarial networks (CycleGANs)**: CycleGANs are neural networks that involve the automatic training of image-to-image translation models without paired input/output. The models are trained using a collection of images from the source and target domain that don’t need to be one-to-one correspondence any way.
 
 **ResNet**: PyTorch's ResNet model was used to be our pretrained model. Resnet models were proposed in “Deep Residual Learning for Image Recognition”. There are several versions of resnet models which contain different layers respectively. In the kaggle competition, “resnet18”(vision:v0.6.0) which contains 18 layers, was used as an example of the pretrained model. Detailed model architectures and accuracy can be found online. We tested different versions of resnet pretrained model to get the best accuracy result for the competition problem. 
   <div align=center><img width="650" src="/Age-Conversion/imgs/gan.png"/></div>
