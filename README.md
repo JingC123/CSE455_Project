@@ -1,6 +1,4 @@
 ## Bird Classfication
-### Video
-<video src="demo.mov" width="320" height="200" controls preload></video>
 ### Problem description
 
 We were doing image recognition of vehicles and using the data from Kaggle and Cifar. This recognition includes convolutional neural networks in pytorch. However, once the professor announced the bird classification challenge, we understood that we can use the same skill for classifying different types of birds. We can use a neural network to train the bird dataset with up to 38562 images in it and see how accurate our model is. In addition to our accuracy, we also can compete with others training accuracy in Kaggle. This can help us to think about how to improve our model, including changing the number of epochs or the size of learning rate.  
@@ -16,7 +14,6 @@ There are 555 different images categories (birds) given by integers [0-554].
 
 **Platform and tool**:
 We decide to use colab as our developing platform since it is more convenient for a team project. Colab also provides online GPUs computation from Google. We can use those GPUs with cuda computation for training models and accelerating computational speed. In addition to the online platform, the programming tool we used in this project is Pytorch. Pytorch supports several computational functions in the neural network. We can design our own neural network and train the model in Pytorch. It also supports cuda computation in GPU. We can use the GPU in colab with Pytorch to train the model and accelerate computation speed. 
-  <div align=center><img width="650" src="/Age-Conversion/imgs/cycle_gan.png"/></div>
   
 **Data preprocessing**:
 After having a preliminary check on the dataset, we found some place that could be improved. First, we are mostly training our model using 128*128 sized image, however, the size of the picture could be much bigger, thus, we could preprocess our image so that the data loader does not have to resize our image every time. Second, the size of the dataset is large but not too large that cannot be stored in the ram of the colab. Thus, we wrote a custom dataset class that inherited torch.util.data.Dataset. When the custom dataset is created, it stores all data into a dictionary. In this case, all data is loaded into Ram and the training process will not have to load data from disk. By doing this, our run time for training reduced from 2 hr to 30 minute.
@@ -35,29 +32,14 @@ We try to use another pretrained net - Resnet152.
 
 
 ### Results
-
 We trained the model and got the generator loss near 3, the generator identity loss near 0.5, the cycle loss near 1, and discriminator loss near 0.2. The GAN loss is increasing during the training, while the discriminator loss shows a linear reduction and all other losses shows an exponential reduction.
 We used the trained model to generate several testing pictures. Some of them showed good results of age shifting, which is described in the examples section.
 
 ### Expectation
 We want try some other pretrained models and improve the predict method to get a better test result in the future work.
 
-<p align="center">
-  <img width="400" src="/Age-Conversion/imgs/loss_G.png"/>
-  <img width="400" src="/Age-Conversion/imgs/loss_G_identity.png"/>
-</p>
-  
-<p align="center">
-  <img width="400" src="/Age-Conversion/imgs/loss_G_GAN.png"/>
-  <img width="400" src="/Age-Conversion/imgs/loss_G_cycle.png"/>
-</p>
-  
-<p align="center">
-  <img width="400" src="/Age-Conversion/imgs/loss_D.png"/>
-</p>
 
 
 ### Codes
 
-[https://github.com/JingC123/CSE455_Project/blob/main/model.ipynb](https://github.com/JingC123/CSE455_Project/blob/main/model.ipynb)
 
