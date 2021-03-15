@@ -23,13 +23,14 @@ We decide to use colab as our developing platform since it is more convenient fo
 
 After having a preliminary check on the dataset, we found that the dataset is large, and downloading it every time from the internet will take a lot of time, while the training time is also affected. Thus, we preprocessed the images, including downsizing the image, convert the JPG file into an H5 file, and load all the images into RAM in the beginning, before training.
 
-***Downsizing the image and convert file:***
+* #### Downsizing the image and convert file:
 
-The dataset comes with various sizes of images which makes the dataloader needs to resize the image every time.  To deal with this problem, we decided to resize the images locally before uploading them to collab. By doing this the dataloader does not have to adjust the image size every time an image is loaded. Also, as suggested by the instructor, using the H5 format will be faster than JPG, thus, we convert the JPG file to H5 using NumPy and h5py. After these two processes, the new files are uploaded and used as the training data. The code can be found at  https://github.com/JingC123/CSE455_Project/blob/main/code/Preprocess.py.
+The dataset comes with various sizes of images which makes the dataloader needs to resize the image every time.  To deal with this problem, we decided to resize the images locally before uploading them to collab. By doing this the dataloader does not have to adjust the image size every time an image is loaded. Also, as suggested by the instructor, using the H5 format will be faster than JPG, thus, we convert the JPG file to H5 using NumPy and h5py. After these two processes, the new files are uploaded and used as the training data. The code can be found at[https://github.com/JingC123/CSE455_Project/blob/main/code/Preprocess.py](https://github.com/JingC123/CSE455_Project/blob/main/code/Preprocess.py).
 
-***Loading Data into RAM***:
 
-After preprocessing the data, the total size of data is about 9GB, although it is still large, it is still smaller than the size of RAM provided by Google Colab. Thus, instead of only loading the image from the disk when we are using that image, we decide to load all images to RAM at one so when the dataloader needs the image, it can access it faster. To implement it, we wrote a custom class, BirdDataSet, that loads images and labels in a dictionary when it is created. By doing this, we manage to decrease the running time from 4 hours to 30 minutes. The BirdDataSet class can be found at https://github.com/JingC123/CSE455_Project/blob/main/code/BirdDataSet.py.
+* #### Loading Data into RAM:
+
+After preprocessing the data, the total size of data is about 9GB, although it is still large, it is still smaller than the size of RAM provided by Google Colab. Thus, instead of only loading the image from the disk when we are using that image, we decide to load all images to RAM at one so when the dataloader needs the image, it can access it faster. To implement it, we wrote a custom class, BirdDataSet, that loads images and labels in a dictionary when it is created. By doing this, we manage to decrease the running time from 4 hours to 30 minutes. The BirdDataSet class can be found at [https://github.com/JingC123/CSE455_Project/blob/main/code/BirdDataSet.py](https://github.com/JingC123/CSE455_Project/blob/main/code/BirdDataSet.py).
 
 
 **Overfitting**:
