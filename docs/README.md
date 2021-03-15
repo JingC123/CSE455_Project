@@ -20,7 +20,18 @@ Here is the link: [https://www.kaggle.com/c/birds21wi](https://www.kaggle.com/c/
 We decide to use colab as our developing platform since it is more convenient for a team project. Colab also provides online GPUs computation from Google. We can use those GPUs with cuda computation for training models and accelerating computational speed. In addition to the online platform, the programming tool we used in this project is Pytorch. Pytorch supports several computational functions in the neural network. We can design our own neural network and train the model in Pytorch. It also supports cuda computation in GPU. We can use the GPU in colab with Pytorch to train the model and accelerate computation speed. 
   
 **Data preprocessing**:
-After having a preliminary check on the dataset, we found some place that could be improved. First, we are mostly training our model using 128*128 sized image, however, the size of the picture could be much bigger, thus, we could preprocess our image so that the data loader does not have to resize our image every time. Second, the size of the dataset is large but not too large that cannot be stored in the ram of the colab. Thus, we wrote a custom dataset class that inherited torch.util.data.Dataset. When the custom dataset is created, it stores all data into a dictionary. In this case, all data is loaded into Ram and the training process will not have to load data from disk. By doing this, our run time for training reduced from 2 hr to 30 minute.
+
+After having a preliminary check on the dataset, we found that the dataset is large, and downloading it every time from the internet will take a lot of time, while the training time is also affected. Thus, we preprocessed the images, including downsizing the image, convert the JPG file into an H5 file, and load all the images into RAM in the beginning, before training.
+
+***Downsizing the image and convert file:***
+
+The dataset comes with various sizes of images which makes the dataloader needs to resize the image every time.  To deal with this problem, we decided to resize the images locally before uploading them to collab. By doing this the dataloader does not have to adjust the image size every time an image is loaded. Also, as suggested by the instructor, using the H5 format will be faster than JPG, thus, we convert the JPG file to H5 using NumPy and h5py. After these two processes, the new files are uploaded and used as the training data. The code can be found at  https://github.com/JingC123/CSE455_Project/blob/main/code/Preprocess.py.
+
+***Loading Data into RAM***:
+
+After preprocessing the data, the total size of data is about 9GB, alghough it is still large, but it is still smaller then the size of RAM provided by colab. Thus, instead of only loading image from disk when we are using that image, we decide to load all image to RAM at one so when the dataloader needs the image, it can access it faster. To implement it, we wroter a custom class, BirdDataSet, that loads images and label in a dictonary when it is created. By doing this, we mange to decrease the running time from 4 hour to 30 mintues.
+The BirdDataSet class can be found at https://github.com/JingC123/CSE455_Project/blob/main/code/BirdDataSet.py.
+
 
 **Overfitting**:
   <div align=center><img width="650" src="./imgs/overfitting.png"/></div>
