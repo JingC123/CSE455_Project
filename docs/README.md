@@ -58,7 +58,7 @@ Resnet101 pretrained model with total 20 epochs.
   <div align=center><img width="650" src="./imgs/new_losses_2.png"/></div>
 Therefore, we got the final result. The final losses = 0.11 and the training accuracy = 0.98.
   <div align=center><img width="650" src="./imgs/new_kaggle.png"/></div>
-In the end, the score we got is 0.85, adn we are 2nd in the competition :)
+In the end, the score we got is 0.85, and we are 2nd in the competition :)
 
 
 ### Expectation
