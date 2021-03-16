@@ -46,23 +46,22 @@ As we know, we can add decay to prevent overfitting. The default decay is 0.0005
 We try to add a dropout layer after the convolutional layer to prevent overfitting. But it doesn’t work, even letting the losses decrease slowly. So we decide to delete the dropout layer.
 * #### Use another pretrianed net
 We try to use another pretrained net, for example, Resnet152. But the Resnet152 doesn’t work well. We guess that because Resnet152 is more complex and deeper, so it is more easily overfitted.
+* ### Resize images
+As all solutions above do not provide a satisfying improvement, we started to look over the data again and see if we made an invalid assumption. When we look at the image, we found that the difference between the two types of bird could be small comparing to the CIFAR10 and MNIST datasets. Thus, resizing the images to 128\*128 might not have enough pixels to distinguish between two similar classes. To deal with this problem, we resize the image to 256\*256 instead of 128\*128. By doing this, the testing accuracy improved significantly. In the preliminary test, the learning rate is set to 0.01, decay is 0.0005, and only running for 5 epochs. The testing accuracy of the experimental group is 72% while the control group only has 52%.
 
 
 ### Results
-We have tried many types of training combinations, but most of them don't work well. We haven’t fixed the problem of overfitting.  
 The training plan we used in the end is:  
-Resnet50 pretrained model with total 35 epochs.  
-1. In the first 20 epochs, we set the lr = 0.01 and decay =0.0005. And we got the losses = 0.436, training accuracy = 0.875.
-2. The next 10 epochs, we set the lr=0.001.
-3. In the final 5 epochs, we set the decay = 0.005.
-  <div align=center><img width="650" src="./imgs/losses.png"/></div>
+Resnet101 pretrained model with total 20 epochs.  
+1. In the first 10 epochs, we set the lr = 0.01 and decay = 0.0005.
+2. The next 10 epochs, we set the lr=0.001 and decay remains the same.
+  <div align=center><img width="650" src="./imgs/new_losses.png"/></div>
 Therefore, we got the final result. The final losses = 0.11 and the training accuracy = 0.98.
-  <div align=center><img width="650" src="./imgs/kaggle.png"/></div>
-In the end, the score we got is 0.7275. That's a sad story, we are 7th in the competition :(
+  <div align=center><img width="650" src="./imgs/new_kaggle.png"/></div>
+In the end, the score we got is 0.85, adn we are 2nd in the competition :)
 
 
 ### Expectation
-I think the score we got is not very high, there still have huge space to improve. So maybe we can try some other pretrained models or improve the predict method to get a better test result.
-
+While we can receive a relatively accurate model, there are still places to improve. First, the data converting process does cannot be applied to the final model due to hardware limitations. If the images are resized to 256\*256, the size of the dataset will be too big to store in Google Drive or to load into RAM directly. Second, the size of images can be larger if we have more VRAM. Finally, since we now have a more complicated data input, we assume that using a more complicated model might improve the result more than what we tested in small images.   
 
 
