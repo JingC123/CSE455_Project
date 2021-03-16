@@ -53,8 +53,8 @@ As all solutions above do not provide a satisfying improvement, we started to lo
 ### Results
 The training plan we used in the end is:  
 Resnet101 pretrained model with total 20 epochs.  
-1. In the first 10 epochs, we set the lr = 0.01 and decay = 0.0005.
-2. The next 10 epochs, we set the lr=0.001 and decay remains the same.
+1. In the first 15 epochs, we set the lr = 0.01 and decay = 0.0005.
+2. The next 5 epochs, we set the lr=0.001 and decay remains the same.
   <div align=center><img width="650" src="./imgs/new_losses_2.png"/></div>
 Therefore, we got the final result. The final losses = 0.11 and the training accuracy = 0.98.
   <div align=center><img width="650" src="./imgs/new_kaggle.png"/></div>
